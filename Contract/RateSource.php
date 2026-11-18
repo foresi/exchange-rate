@@ -6,14 +6,20 @@
 
 declare(strict_types=1);
 
-namespace Foresi\ExchangeRate\Application;
+namespace Foresi\ExchangeRate\Contract;
+
+use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
 /**
  * Where rates come from, such as the ČNB. The source answers for a date with its
- * last publication on or before it.
+ * last publication on or before it. A country module offers one (tag
+ * "app.exchange_rate_source"); without one, there are no rates to fetch.
  */
+#[AutoconfigureTag(self::TAG)]
 interface RateSource
 {
+    public const string TAG = 'app.exchange_rate_source';
+
     /**
      * A stable name, stored with the rates.
      */

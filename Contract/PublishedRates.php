@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Foresi\ExchangeRate\Application;
+namespace Foresi\ExchangeRate\Contract;
 
 /**
  * Everything a source published on one day.
